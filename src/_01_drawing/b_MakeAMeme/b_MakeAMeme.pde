@@ -3,20 +3,22 @@
 
 void setup() {
  // 2. Set the size of the sketch to be 500 x 500
-
+size(500, 500);
  // The following code loads the image into the program
   PImage baby = loadImage("fistPump.png");
   
   // 3. Resize the baby image to be the same size as the sketch
   //    Use the baby.resize() command for this
-
+baby.resize(500, 500);
 
   // 4. Set the baby image to be the background of your sketch
   //    Use the background() command for this
-
+background(baby);
   
   // 5. Write the message "TESTED MY PROGRAM" at the top of the meme
   //    Use the text() command for this
+  textSize(45);
+  text("TESTED MY PROGRAM", 0, 75);
 
   
   // 6. Now make the message bigger so that it fills the width of the sketch
@@ -26,8 +28,12 @@ void setup() {
 void draw() {
 
   // 7. Write the messsage "IT WORKED FIRST TIME" at the bottom of the meme
+if(mousePressed){
+fill(#00F0C6);
 
-  
+textSize(45);
+text("IT WORKED FIRST TIME", 0, 450);
+}  
   // 8. Change the color of the text. Use the fill() command for this
   //    Put it BEFORE you write the text!
   
