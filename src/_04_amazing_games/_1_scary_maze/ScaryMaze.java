@@ -39,7 +39,7 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 		
 		
 		//2. Change the line of code below so that it uses YOUR maze's file name
-		maze = ImageIO.read(getClass().getResource("pixilart-drawing.png"));
+		maze = ImageIO.read(getClass().getResource("pixil-frame-0.png"));
 		
 		
 		//3. Run the program. Do you see your maze? Don't continue until you do.
@@ -57,11 +57,11 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 		int mouseColor = maze.getRGB(mouseX, mouseY);	
 		
 		//4. Print the mouseColor variable (Hint: use syso)
-System.out.print(mouseColor);		
+//System.out.println(mouseColor);		
 		//5.  Run your program and move your mouse over the START COLOR. A number will be printed to the console
 		
 		
-		int startColor=0;
+		int startColor= -1237980;
 		//6. Change the value of this startColor variable to the number printed in the previous step. 
 		
 		
@@ -73,14 +73,21 @@ System.out.print(mouseColor);
 		
 		
 		//7. Make a new int variable for the background color of the maze
-
+int background = -12629812;
+int end = -14752170;
 		
 		//8. Run the program and move the mouse over the BACKGROUND COLOR. 
 		//   Use the number that is printed to the console to set the background color variable 
-
+if (started) {
+	if (mouseColor == background) {
+		scare();
+	}
+if (mouseColor == end) {
+	JOptionPane.showMessageDialog(null, "YOU WON!!!");	
+}
 		
 		
-		if (started) {
+		
 		
 		
 			//9. If the mouse falls off the path (which means it is on the background color)
@@ -90,8 +97,8 @@ System.out.print(mouseColor);
 			//    (you will need to get the number of the END COLOR by moving the mouse over it)
 
 					
+}			
 			
-		}	
 	}
 
 	private void scare() {
@@ -101,7 +108,8 @@ System.out.print(mouseColor);
 		System.out.println("BOO!");
 		
 		if (canPlaySounds) {
-
+			playScarySound("415209__inspectorj__cat-screaming-a.wav");
+			showScaryImage("Scariest_Movies_IT.jpeg");
 			/**********  PLAY A SOUND ***************/
 			//10. Find a scary sound and put it in the _04_amazing_games._1_scary_maze package (where you put your maze picture). 
 			//    You can find a sound on freesound.org. Log in as leagueofamazing/code4life.		
@@ -122,7 +130,7 @@ System.out.print(mouseColor);
 	/**********  DO NOT CHANGE THE CODE BELOW THIS LINE ***************/
 	
 	private void playScarySound(String soundName) {
-		File sound = new File("src/_04_amazing_games/_1_scary_maze/"+soundName);
+		File sound = new File("src/_04_amazing_games/_1_scary_maze/"+ soundName);
 		if (sound.exists()) {
 			try {
 				Clip clip = AudioSystem.getClip();
